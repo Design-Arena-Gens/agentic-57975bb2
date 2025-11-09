@@ -1,0 +1,105 @@
+/* Fonts: Inter for UI, Work Sans for display */
+:root {
+  /* Core Neutrals */
+  --color-off-white: #F6F7F6;
+  --color-mist-gray: #E6E9EC;
+  --color-charcoal: #1E2328;
+
+  /* Accents */
+  --color-mint-aqua: #67E0C2; /* fresh minty aqua */
+  --color-tangerine: #FFA45B; /* gentle warmth */
+
+  /* Flavor Accents */
+  --flavor-lemon-lime: #C7F464;
+  --flavor-berry: #D16BA5;
+  --flavor-mango: #FFB84D;
+  --flavor-cola: #4A2C2A;
+  --flavor-watermelon: #FF6F7D;
+
+  /* Tokens */
+  --radius-xs: 6px;
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --shadow-soft: 0 8px 24px rgba(30,35,40,0.08);
+  --shadow-crisp: 0 6px 18px rgba(30,35,40,0.12);
+
+  --surface: var(--color-off-white);
+  --text: var(--color-charcoal);
+  --muted: #6B727A;
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  background: var(--surface);
+  color: var(--text);
+  font-family: var(--font-inter), ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, Apple Color Emoji, Segoe UI Emoji;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Layout helpers */
+.container {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 40px 24px;
+}
+
+.grid {
+  display: grid;
+  gap: 16px;
+}
+
+.grid.cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.grid.cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.grid.cols-5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+
+@media (max-width: 900px) {
+  .grid.cols-2, .grid.cols-3, .grid.cols-5 { grid-template-columns: 1fr; }
+}
+
+.card {
+  background: white;
+  border: 1px solid var(--color-mist-gray);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  border-radius: 999px;
+  background: var(--color-charcoal);
+  color: white;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn.secondary {
+  background: transparent;
+  color: var(--color-charcoal);
+  border: 1px solid var(--color-mist-gray);
+}
+
+.token { border-radius: var(--radius-md); }
+
+/* Motion: subtle twist */
+@keyframes twist {
+  0% { transform: rotate(0deg); }
+  50% { transform: rotate(-10deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.twist-hover:hover { animation: twist 700ms ease; }
+
+/* Display font utility */
+.display {
+  font-family: var(--font-worksans), var(--font-inter), system-ui, sans-serif;
+  letter-spacing: 0.2px;
+}
